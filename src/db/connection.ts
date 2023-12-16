@@ -7,7 +7,6 @@ if (!connectionString) {
     throw new Error('MongoDB connection string is missing');
 }
 
-
 const db = await mongoose.connect(connectionString);
 console.log(db);
 
@@ -16,7 +15,8 @@ const priceSchema = new mongoose.Schema({
     price: Number,
     timestamp: { type: Date, default: Date.now }
   });
-  const productSchema = new mongoose.Schema({
+
+const productSchema = new mongoose.Schema({
     name: String,
     description: String,
     prices: [priceSchema]
