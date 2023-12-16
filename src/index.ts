@@ -1,11 +1,27 @@
 import express from 'express';
 import Product  from './db/connection.js';
 
+//* Importing dotenv for environment variables.
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+
+//* Setting the port
+const PORT = process.env.PORT;
+
+
+
+//* Configuring app variables
 const app = express();
 app.use(express.json())
 
-const PORT = 3001
 
+
+//* middlewares
+
+
+
+//* routes
 app.get('/ping', (_req, res) => {
     console.log('Someone has made a ping here')
     res.send('pong!')
