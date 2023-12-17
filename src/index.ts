@@ -1,5 +1,5 @@
 import express from 'express';
-import Product  from './db/connection.js';
+
 
 //* Importing dotenv for environment variables.
 import * as dotenv from 'dotenv';
