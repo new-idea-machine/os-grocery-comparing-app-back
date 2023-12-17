@@ -8,7 +8,7 @@ if (!connectionString) {
 }
 
 const db = await mongoose.connect(connectionString);
-console.log(db);
+// console.log(db);
 
 const priceSchema = new mongoose.Schema({
     store: String,
