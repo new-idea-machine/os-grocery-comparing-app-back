@@ -5,20 +5,18 @@ import express from 'express';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-
 //* Setting the port
 const PORT = process.env.PORT;
-
 
 //* Initializing express application 
 const app = express();
 
+// //* middlewares
 
-//* middlewares
-app.use(express.json());
 
 
 //* End point testing
+
 app.get('/ping', (_req, res) => {
     console.log('Someone has made a ping here')
     res.send('pong!')
