@@ -3,26 +3,21 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const connectionString = process.env.MONGO_URL;
-if (!connectionString) {
-    throw new Error('MongoDB connection string is missing');
-}
 
-const db = await mongoose.connect(connectionString);
-// console.log(db);
+const getLogger = require("../logger");
+const logger = getLogger("db");
 
-const priceSchema = new mongoose.Schema({
-    store: String,
-    price: Number,
-    timestamp: { type: Date, default: Date.now }
-  });
+const connectToDatabase = async () => {
+  try {
+    await mongoose.connect(`${connectionString}`);
+    logger.log("Connected to MongoDB");
+  } catch (error) {
+    logger.error(error);
+  }
+};
 
-const productSchema = new mongoose.Schema({
-    name: String,
-    description: String,
-    prices: [priceSchema]
-  });
+connectToDatabase();
 
-const Product = db.model('Product', productSchema);
-export default Product;
+
 
 
