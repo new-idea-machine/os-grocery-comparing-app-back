@@ -1,4 +1,5 @@
 import express from 'express';
+const cors = require("cors");
 
 
 //* Importing dotenv for environment variables.
@@ -12,7 +13,7 @@ const PORT = process.env.PORT;
 const app = express();
 
 // //* middlewares
-
+app.use(cors());
 
 
 //* End point testing
